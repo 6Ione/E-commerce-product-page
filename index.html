@@ -5,21 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&display=swap" rel="stylesheet">
+
   <title>Frontend Mentor | E-commerce product page</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     body{
       background-color: white;
+      font-family: 'kumbh sans', sans-serif;
     }
 
     .top-section {
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      height: 20vh;
+      justify-content: left;
+      
+      width: 80%;
+      max-width: 1200px;
+      margin: 30px auto;
+      padding-bottom: 35px;
+      border-bottom: 1px solid hsl(220, 14%, 75%);
+    }
+
+    .logo {
+      margin-right: 60px;
+    }
+
+    .nav-bar {
+      display: flex;
+      gap: 30px;
     }
 
     .nav-bar a {
@@ -28,12 +43,61 @@
     }
 
     .shop-item{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:100px;
-    margin-top:80px;
-}
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:100px;
+      margin-top:80px;
+    }
+
+    .watermark {
+      color: hsl(219, 9%, 45%);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+    }
+    
+    .information h1 {
+      color: hsl(220, 13%, 13%);
+      font-size: 2.5rem;
+      max-width: 500px;
+    }
+
+    .information p {
+      color: hsl(219, 9%, 45%);
+      font-size: 1.1rem;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
+    .price {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .price h1 {
+      color: hsl(220, 13%, 13%);;
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .price span{
+      color: white;
+      background: hsl(220, 13%, 13%);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: .9rem;
+    }
+    .price p{
+      color: hsl(219, 9%, 45%);
+      width: 100%;
+      margin: 0;
+      text-decoration: line-through;
+      font-weight: 700;
+    }
     .product-image-container {
       width: 450px;
     }
@@ -44,11 +108,13 @@
       border-radius: 18px;
       cursor: pointer;
     }
+
     .product-image-lineup{
       display:flex;
       justify-content:space-between;
       margin-top:25px;
     }
+
     .product-image-lineup img{
       width:90px;
       height:90px;
@@ -56,17 +122,16 @@
       cursor:pointer;
       transition:.2s;
     }
+
     .product-image-lineup img:hover{
       opacity:.6;
     }
+
     .product-image-lineup img.active{
       border:3px solid hsl(26,100%,55%);
       opacity:.45;
     }
 
-    .watermark p {
-      color: hsl(220, 13%, 13%);
-    }
   </style>
 </head>
 <body>
@@ -83,8 +148,12 @@
         <a href="#">About</a>
         <a href="#">Contact</a>
       </div>
+
+      <div class="nav-right">
+        <img src="images/image-avatar.png" alt="avatar-image">
+      </div>
     </div>
-<hr>
+    
     <div class="shop-item">
       <div class="product-image-container">
         <div class="enlarge-image">
@@ -101,7 +170,7 @@
 
       <div class="item-information">
         <div class="watermark">
-          <p>Sneaker Company</p>
+          <p><b>SNEAKER COMPANY</b></p>
         </div>
 
         <div class="information">
