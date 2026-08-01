@@ -9,7 +9,6 @@
 
   <title>Frontend Mentor | E-commerce product page</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     body{
       background-color: white;
@@ -19,13 +18,19 @@
     .top-section {
       display: flex;
       align-items: center;
-      justify-content: left;
+      justify-content: space-between;
       
       width: 80%;
       max-width: 1200px;
       margin: 30px auto;
       padding-bottom: 35px;
       border-bottom: 1px solid hsl(220, 14%, 75%);
+    }
+
+    .left-nav {
+      display: flex;
+      align-items: center;
+      gap: 60px;
     }
 
     .logo {
@@ -40,6 +45,22 @@
     .nav-bar a {
       text-decoration: none;
       color: hsl(219, 9%, 45%);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .avatar {
+      width:50px;
+      cursor:pointer;
+      border-radius:50%;
+    }
+
+    .avatar:hover{
+      border:2px solid hsl(26,100%,55%);
     }
 
     .shop-item{
@@ -98,6 +119,20 @@
       text-decoration: line-through;
       font-weight: 700;
     }
+
+    .purchase button {
+      border: none;
+      width: 50%;
+      padding: 1rem;
+      cursor: pointer;
+      background-color: hsl(26, 100%, 55%);
+      border-radius: 10px;
+      color: hsl(220, 13%, 13%);
+      font-size: .9rem;
+    }
+    .purchase button:hover {
+      background-color: hsl(25, 100%, 94%);
+    }
     .product-image-container {
       width: 450px;
     }
@@ -132,23 +167,87 @@
       opacity:.45;
     }
 
+    .thumbnail{
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .thumbnail:hover {
+      opacity:.6;
+    }
+
+    .thumbnail.active {
+      border:3px solid hsl(26,100%,55%);
+      opacity:.45;
+    }
+
+    .purchase-row {
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin-top:35px;
+    }
+
+    .counter {
+        flex:0 0 160px;
+    }
+
+    .purchase {
+        flex:1;
+    }
+
+    .purchase button {
+        width:100%;
+        height:55px;
+    }
+
+    .counter  {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      width:160px;
+      height:55px;
+      background:hsl(223,64%,98%);
+      border-radius:10px;
+      padding:0 18px;
+    }
+
+    .counter button{
+      border:none;
+      background:none;
+      color:hsl(26,100%,55%);
+      font-size:1.6rem;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .counter button:hover{
+      opacity:.6;
+    }
+    
+    #quantity{
+      font-weight:700;
+      color:hsl(220,13%,13%);
+    }
   </style>
 </head>
 <body>
   <main>
     <div class="top-section">
-      <div class="logo">
-        <img src="images/logo.svg" alt="logo">
-      </div>
+      <div class="left-nav">
+        <div class="logo">
+          <img src="images/logo.svg" alt="logo">
+        </div>
 
-      <div class="nav-bar">
-        <a href="#">Collections</a>
-        <a href="#">Men</a>
-        <a href="#">Women</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <div class="nav-bar">
+          <a href="#">Collections</a>
+          <a href="#">Men</a>
+          <a href="#">Women</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
       </div>
-
+      
       <div class="nav-right">
         <img src="images/image-avatar.png" alt="avatar-image">
       </div>
@@ -157,14 +256,14 @@
     <div class="shop-item">
       <div class="product-image-container">
         <div class="enlarge-image">
-          <img src="images/image-product-1.jpg" alt="product-image">
+          <img id="main-image" src="images/image-product-1.jpg" alt="product-image">
         </div>
 
         <div class="product-image-lineup">
-          <img src="images/image-product-1-thumbnail.jpg" alt="product-image-thumbnail">
-          <img src="images/image-product-2-thumbnail.jpg" alt="product-image-thumbnail">
-          <img src="images/image-product-3-thumbnail.jpg" alt="product-image-thumbnail">
-          <img src="images/image-product-4-thumbnail.jpg" alt="product-image-thumbnail">
+          <img class="thumbnail active" src="images/image-product-1-thumbnail.jpg" alt="product-image-thumbnail">
+          <img class="thumbnail" src="images/image-product-2-thumbnail.jpg" alt="product-image-thumbnail">
+          <img class="thumbnail" src="images/image-product-3-thumbnail.jpg" alt="product-image-thumbnail">
+          <img class="thumbnail" src="images/image-product-4-thumbnail.jpg" alt="product-image-thumbnail">
         </div>
       </div>
 
@@ -186,9 +285,16 @@
           <p>$250.00</p>
         </div>
 
-        <div class="purchase">
-          <!-- counter for amount to purchase-->
-           <button type="button">Add to cart</button>
+        <div class="purchase-row">
+          <div class="counter">
+            <button id="minus">-</button>
+            <span id="quantity">0</span>
+            <button id="plus">+</button>
+          </div>
+
+          <div class="purchase">
+            <button id=cartButton type="button"><b>Add to cart</b></button>
+          </div>
         </div>
       </div>
     </div>
